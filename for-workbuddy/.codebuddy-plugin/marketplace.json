@@ -1,0 +1,42 @@
+{
+  "name": "kaying-for-tuanjie-marketplace",
+  "description": "WorkBuddy plugins from the kaying-for-tuanjie project: Tuanjie Engine (团结引擎) game-development skills — 27 skills covering UI, 2D/Tilemap, AI navigation, 3D physics, URP, audio, IAP and localization, plus Tuanjie editor-binary automation, the packages.unity.cn registry, WeChat Mini Game and China-market guidance.",
+  "version": "0.1.0",
+  "owner": {
+    "name": "kaying-studio",
+    "url": "https://github.com/kaying-studio"
+  },
+  "plugins": [
+    {
+      "name": "tuanjie",
+      "source": "./plugins/tuanjie",
+      "displayName": "kaying-for-tuanjie",
+      "description": "Tuanjie Engine (团结引擎) game-development skills — ported from Unity's official agent plugin and adapted for Tuanjie: editor-binary automation, the packages.unity.cn registry, WeChat Mini Game and China-market guidance. 27 skills spanning UI (uGUI / UI Toolkit / IMGUI), the full 2D and Tilemap set, AI navigation, 3D physics, URP migration and post-processing, sprite editing, Shader Graph custom nodes, audio and TextMeshPro optimization, localization, IAP, and Tuanjie editor command-line automation.",
+      "description_i18n": {
+        "zh-CN": "团结引擎（Tuanjie Engine）游戏开发技能包。基于 Unity 官方 agent 插件移植并针对团结引擎改造：Tuanjie 编辑器命令行自动化、packages.unity.cn 包管理、微信小游戏与国内渠道指引。内含 27 个技能，覆盖 UI（uGUI / UI Toolkit / IMGUI）、完整 2D 与 Tilemap 工具集、AI 导航、3D 物理、URP 迁移与后处理、精灵编辑、Shader Graph 自定义节点、音频与 TextMeshPro 优化、本地化、内购，以及团结引擎命令行自动化。",
+        "en-US": "Tuanjie Engine game-development skills — ported from Unity's official agent plugin and adapted for Tuanjie: editor-binary automation, the packages.unity.cn registry, WeChat Mini Game and China-market guidance. 27 skills spanning UI (uGUI / UI Toolkit / IMGUI), the full 2D and Tilemap set, AI navigation, 3D physics, URP migration and post-processing, sprite editing, Shader Graph custom nodes, audio and TextMeshPro optimization, localization, IAP, and Tuanjie editor command-line automation."
+      },
+      "version": "0.1.0",
+      "author": {
+        "name": "kaying-studio",
+        "url": "https://github.com/kaying-studio"
+      },
+      "homepage": "https://github.com/kaying-studio/kaying-for-tuanjie",
+      "repository": "https://github.com/kaying-studio/kaying-for-tuanjie",
+      "license": "LicenseRef-Unity-Companion-License",
+      "keywords": [
+        "tuanjie",
+        "团结引擎",
+        "unity-china",
+        "游戏开发",
+        "微信小游戏",
+        "OpenHarmony",
+        "URP",
+        "tilemap",
+        "in-app-purchases",
+        "localization"
+      ],
+      "category": "开发工具"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$comment": "Chinese descriptions for the WorkBuddy open-platform skill packages. The open platform requires SKILL.md frontmatter to carry `description`, `description_zh`, `description_en`, `version` and `author`; only the Chinese text is authored here — `description_en` is read from the skill's own `description`, and `version`/`author` come from package.json and the `author` field below. Keys must match the directory names under the repository's `skills/`. Each value should state what the skill does AND its trigger words, per the platform's authoring guidance.",
+  "author": "kaying-studio",
+  "descriptions_zh": {
+    "2d-pixel-perfect": "为团结引擎（Tuanjie Engine）项目搭建、诊断与修复 2D 像素完美（Pixel Perfect）渲染，适用于复古风与像素美术游戏。触发词：像素完美、pixel perfect、像素抖动、2D 画面模糊、像素画渲染设置。",
+    "audio-setup-mixers": "扫描场景与音频资源，按播放内容把 Audio Source 归类并路由到已有的 Audio Mixer Group。触发词：音频混音器、Audio Mixer、音频分组、声音路由、混音器归类。注意：本技能只盘点现状并提示补充，不自动创建 Mixer/Group，也不设置音量。",
+    "generate-editor-search-query": "为只读的编辑器资源与场景对象查找生成 Unity Search（Quick Search）查询语句并打开搜索窗口。触发词：查找资源、搜索资源、定位、筛选、列出材质/贴图/预制体/场景/脚本/着色器/游戏对象/组件/灯光/相机/UI 对象/资产类型。不适用于项目结构综述、代码问题、网页搜索与文件系统搜索。",
+    "implement-in-app-purchases": "实现、配置与调试团结引擎内购（Unity IAP）：商店连接、商品目录、消耗型/非消耗型/订阅、两步待确认流程、收据校验、权益校验、恢复交易、Apple 扩展（促销购买、Ask-to-Buy、兑换码）与 Google Play 扩展（订阅升降级），以及 D2C 直销与第三方支付（Stripe/Coda）。触发词：内购、IAP、微交易、付费、订阅、从原生计费（Google BillingClient / Apple StoreKit）或 RevenueCat/Adapty 迁移。含国内渠道说明。",
+    "initialize-ai-navigation": "搭建与配置 AI 导航系统：NavMesh 表面、NavMesh Agent、障碍物、连接、修饰器、区域与代价。触发词：寻路、导航网格、NavMesh、巡逻路线、避障与雕刻、多段 NavMesh 连接、导航与动画配合、导航问题排查。",
+    "localization": "配置团结引擎本地化（Unity Localization）：语言区域、字符串表与资源表、CJK 字体支持与 Addressables 工作流。触发词：多语言、国际化、i18n、l10n、翻译 UI 文本、中日韩字体、让游戏支持多种语言。",
+    "manage-sprite-atlas": "使用预构建管线（IPreprocessBuildWithReport）管理 SpriteAtlas，可配置主图集、变体图集、纹理设置、打包设置与分平台配置。触发词：精灵图集、SpriteAtlas、图集优化、自动打包图集、变体图集、运行时访问图集。默认使用预构建方案，除非用户明确要求手工配置。",
+    "migrate-birp-to-urp": "规划、执行与排障从内置渲染管线（BiRP）迁移到 URP。触发词：升级/转换/迁移到 URP、材质变粉或洋红、内置材质与着色器转换、2D 项目转 URP 2D、迁移后光照/质量/后处理/烘焙光照贴图/反射探针问题、渲染管线迁移后的画面异常。",
+    "new-tuanjie-project": "从零开始一个全新的团结引擎游戏或项目：引导式流程会先收集创意、目标平台与变现方式，确认团结编辑器已安装，然后创建项目、初始化版本控制并安装依赖包。触发词：新建游戏、创建项目、从零做游戏、项目脚手架、做原型、Game Jam、空项目、项目初始化。不生成玩法代码。",
+    "optimize-audio": "通过正确的导入设置与混音器配置，优化团结引擎音频的内存占用、CPU 开销与播放质量。触发词：音频内存过高、Load Type 选择（短音效/音乐/环境音）、采样率与编码格式、3D 音频转单声道、AudioMixer 分组过深或静音路径上的效果导致的 CPU 开销。",
+    "optimize-text-mesh-pro": "优化 TextMeshPro 的字体栈、动态回退图集、内边距与采样比、SDF16、AutoSize 规范、世界空间与 UGUI 文本，以及 Memory Profiler 字体数据抓取。触发词：TextMeshPro、TMP、字体资源、动态图集、TMP 本地化、中日韩字体、中西文混排、文本渲染性能、字体回退策略、SDF 字体质量、文本相关内存问题。不适用于 UI Toolkit 布局或非 TMP 的 uGUI 文本。",
+    "optimize-web": "优化团结引擎 WebGL 与 WebGPU 构建：减小下载体积、加快首屏加载、提升浏览器运行时性能。触发词：WebGL 包体过大、某个浏览器卡顿、耗电异常、需要配置 CDN/服务器压缩、资源裁剪、着色器变体精简、KTX 贴图、画质设置、Web 性能分析。",
+    "physics-3d-collision": "基于 MonoBehaviour 的项目的 3D PhysX 碰撞与触发器诊断。触发词：OnCollisionEnter / OnTriggerEnter 不触发、物体互相穿透、Physics.Raycast 打不中、布娃娃炸开、AddForce 稳定后失效、MeshCollider 规则等 3D PhysX 症状。相邻领域（2D 物理、OTS / Unity Physics 包）会给出简短说明与文档链接，而非直接拒绝。",
+    "shader-graph-create-custom-node": "由 HLSL 代码生成自定义 Shader Graph 节点。触发词：创建 Shader Graph 节点、把已有 HLSL 代码变成可用的反射函数节点。",
+    "sprite-editor": "通过生成 C# 编辑器脚本、调用 ISpriteEditorDataProvider 系列 API 编辑精灵属性：精灵矩形、九宫格边框、轴心、轮廓，以及自动/网格/等距切分。触发词：精灵编辑、精灵图集、精灵表、贴图切分、精灵边框、Sprite Editor。",
+    "sprite-segment-3x3grid": "分析精灵贴图，基于颜色匹配输出 3×3 网格表示：把精灵切成 3×3 九格，识别中心格的主色，并输出标记哪些格子与中心色一致的文本图案。触发词：精灵结构分析、3×3 切分、精灵配色分布、精灵图案文档化。",
+    "tilemap-palette-create": "创建 Tile Palette（瓦片调色板）资源，供 2D 关卡搭建整理瓦片使用，可指定矩形、六边形、等距等网格布局。触发词：创建瓦片调色板、Tile Palette、2D 关卡设计、整理瓦片。",
+    "tilemap-ruletile-createempty": "创建一个不含 Sprite 或精灵表输入的空白 RuleTile 资源（RuleTile / HexagonalRuleTile / IsometricRuleTile），供自定义规则配置使用。仅在用户未提供也未引用任何贴图时使用。触发词：空白 RuleTile、自定义瓦片规则。若用户提到已有贴图、地形美术、边缘瓦片或瓦片文件夹，请改用 tilemap-ruletile-createfromsegment，不要使用本技能。",
+    "tilemap-ruletile-createfromsegment": "基于已有地形或边缘贴图构建可自动拼接（autotile）的 RuleTile，让瓦片绘制时自动衔接；也可把 sprite-segment-3x3grid 输出的 3×3 网格文本模式转换为 TilingRule 邻居配置（'.' 映射为 This 规则，'X' 映射为 DontCare，并按具体程度排序）。触发词：自动拼接瓦片、autotile、RuleTile、贴图正确衔接、地形边缘、由精灵分析生成瓦片规则。必须提供贴图作为输入。",
+    "tuanjie-cli": "从终端自动化团结引擎（Tuanjie Engine，Unity 中国版）：用编辑器二进制的命令行参数（-batchmode、-executeMethod、-quit、-projectPath、-logFile、-buildTarget）做无头/批处理导入与构建，定位已安装的团结编辑器与团结 Hub，从 ProjectSettings/ProjectVersion.txt 读取项目引擎版本，查看编辑器日志，以及各类团结编辑器命令行操作。也适用于咨询团结引擎的 AI 能力（团结 AI agent、Codely、MCP）。安装 UPM 包请用 tuanjie-package-management；新建项目引导流程请用 new-tuanjie-project。",
+    "tuanjie-package-management": "在编辑器之外以编程方式为团结引擎项目增删改查 UPM 包：通过 C# UnityEditor.PackageManager.Client API 做无头或 CI 安装，对照团结注册表（packages.unity.cn）校验包名与版本，把 Unity 项目的 manifest 迁移到团结引擎，或按品类、平台与变现方式挑选项目需要的包。触发词：安装包、添加 com.unity.*、无头或 CI 装包、迁移到团结引擎后包管理器报错、该给某类游戏装哪些包。",
+    "ui": "团结引擎 UI 总入口，覆盖菜单、HUD、界面、面板、按钮、文本等所有可视界面元素：处理场景或预制体中 UI 的盘点与结构分析、样式调整（颜色、边框、背景、字体、间距、圆角）、布局调整与 UI 生成。未指定框架时，先探测项目使用的 UI 体系再路由到 UI Toolkit、uGUI 或 IMGUI。触发词：游戏 UI、菜单、HUD、设置界面、暂停界面、构建/修改/理解 UI。",
+    "ui-imgui": "团结引擎 IMGUI（即时模式 GUI）专家，面向使用 OnGUI 的遗留编辑器工具：生成与修改 IMGUI 的 EditorWindow、自定义 Inspector、PropertyDrawer 及 OnGUI 代码。仅在维护既有 IMGUI 代码或用户明确要求 IMGUI/OnGUI 时使用。新建编辑器 UI 默认走 UI Toolkit（ui-uitk），除非项目整体只用 IMGUI。",
+    "ui-ugui": "团结引擎 uGUI（基于 Canvas）UI 专家：理解、编辑与生成 Canvas 层级、RectTransform、Layout Group 与预制体 UI。触发词：Canvas、uGUI、RectTransform、.prefab UI 文件、界面布局。",
+    "ui-uitk": "团结引擎 UI Toolkit 专家（Unity 6.0+）：理解、编辑与生成基于 flex 布局的 UXML 与 USS 文件。触发词：.uxml、.uss、UI Toolkit、UIElements、UIDocument、运行时数据绑定、自定义 UI 元素、Manipulator、PanelSettings。",
+    "urp-postprocessing": "使用 Volume 框架搭建、配置与调试 URP 后处理效果。触发词：泛光、Bloom、色调映射、Tonemapping、颜色调整、景深、暗角、运动模糊、Volume 覆盖（Volume Override）。",
+    "validate-urp-render-graph-renderer-feature": "审查与校验使用 Render Graph API 的 Unity 6+ URP ScriptableRendererFeature，检查资源连线、材质绑定、执行结构、描述符用法、全局资源暴露与 Render Graph 最佳实践等正确性问题。触发词：校验 RendererFeature、审查 Render Graph、URP 自定义渲染特性报错。"
+  }
+}

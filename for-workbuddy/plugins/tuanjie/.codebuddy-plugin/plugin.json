@@ -1,0 +1,40 @@
+{
+  "name": "tuanjie",
+  "displayName": "kaying-for-tuanjie",
+  "version": "0.1.0",
+  "description": "Tuanjie Engine (团结引擎) game-development skills for WorkBuddy — adapted from Unity's official agent plugin with Tuanjie-specific tooling, WeChat Mini Game awareness, and China-market guidance.",
+  "author": {
+    "name": "kaying-studio",
+    "url": "https://github.com/kaying-studio"
+  },
+  "homepage": "https://github.com/kaying-studio/kaying-for-tuanjie",
+  "repository": "https://github.com/kaying-studio/kaying-for-tuanjie",
+  "license": "LicenseRef-Unity-Companion-License",
+  "keywords": [
+    "tuanjie",
+    "团结引擎",
+    "unity-china",
+    "gamedev",
+    "game-development",
+    "wechat-minigame",
+    "openharmony",
+    "urp",
+    "tilemap",
+    "in-app-purchases",
+    "localization"
+  ],
+  "category": "开发工具",
+  "features": [
+    "27 Tuanjie Engine skills: UI, 2D/Tilemap, AI navigation, 3D physics, URP, audio, IAP, localization",
+    "Editor-binary automation: headless import, build and -executeMethod runs via Tuanjie.exe",
+    "UPM package management against the packages.unity.cn registry, driven from CI",
+    "WeChat Mini Game and OpenHarmony export guidance, plus China-market monetization notes",
+    "Always-on rule that routes Tuanjie work to the bundled skills"
+  ],
+  "skills": [
+    "./skills"
+  ],
+  "commands": [
+    "./commands"
+  ]
+}

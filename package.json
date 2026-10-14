@@ -1,7 +1,7 @@
 {
   "name": "kaying-for-tuanjie",
   "version": "0.1.0",
-  "description": "Tuanjie Engine (团结引擎) game-development skills for the Pi coding agent — Pi port of Unity's official agent plugin adapted for Tuanjie: editor-binary automation, packages.unity.cn registry, WeChat Mini Game and China-market guidance.",
+  "description": "Tuanjie Engine (团结引擎) game-development skills for coding agents — Pi port of Unity's official agent plugin adapted for Tuanjie: editor-binary automation, packages.unity.cn registry, WeChat Mini Game and China-market guidance.",
   "license": "SEE LICENSE IN LICENSE.md",
   "type": "module",
   "keywords": [
@@ -16,7 +16,9 @@
     "urp",
     "tilemap",
     "in-app-purchases",
-    "localization"
+    "localization",
+    "workbuddy-plugin",
+    "codebuddy-plugin"
   ],
   "pi": {
     "skills": [
@@ -25,6 +27,10 @@
     "extensions": [
       "./extensions/tuanjie.ts"
     ]
+  },
+  "scripts": {
+    "build:workbuddy": "node scripts/build-workbuddy.mjs",
+    "check:workbuddy": "node scripts/build-workbuddy.mjs --check"
   },
   "peerDependencies": {
     "@earendil-works/pi-coding-agent": "*",
@@ -38,6 +44,8 @@
     ".claude-plugin",
     ".zcode-plugin",
     ".kayingcode-plugin",
+    "for-workbuddy",
+    "scripts/build-workbuddy.mjs",
     "README.md",
     "README.zh-CN.md",
     "LICENSE.md"

@@ -13,7 +13,7 @@ Tilemap set, AI navigation, 3D physics, URP migration and post-processing, sprit
 custom Shader Graph nodes, audio optimization, TextMeshPro optimization, localization, IAP (with
 China channel notes), Tuanjie editor command-line automation, and package management.
 
-Available for **Claude Code**, **Codex**, **Pi**, **ZCode**, and **KayingCode**.
+Available for **Claude Code**, **Codex**, **Pi**, **ZCode**, **KayingCode**, and **WorkBuddy**.
 
 ## Install
 
@@ -92,6 +92,44 @@ KayingCode-facing copy; the plugin ID is identical (`tuanjie@kaying-for-tuanjie-
 > for security reasons), so update both if the repository moves. The Claude Code, Codex and Pi
 > manifests use relative paths and need no edit.
 
+**WorkBuddy** — WorkBuddy's plugin system is CodeBuddy-compatible, so the WorkBuddy build is a
+self-contained plugin marketplace under `for-workbuddy/`: the plugin `tuanjie` with its 27
+skills, two slash commands and an always-on rule. In the desktop app open
+**插件 → + → 添加插件市场** and point it at the `for-workbuddy` directory, then install
+**tuanjie** from the *个人* section. From the CLI:
+
+```bash
+codebuddy plugin marketplace add ./for-workbuddy
+codebuddy plugin install tuanjie kaying-for-tuanjie-marketplace
+```
+
+To try it without installing, load the plugin directly:
+
+```bash
+codebuddy --plugin-dir ./for-workbuddy/plugins/tuanjie
+```
+
+For the **open platform** (开放平台 → 发布管理 → 技能) the build produces one uploadable
+archive:
+
+```bash
+npm run build:workbuddy     # → dist/tuanjie.zip
+```
+
+The open platform accepts **one skill per archive, at most two directory levels deep**
+(`{skill-name}/SKILL.md`). It does not recurse, so the 27 skills cannot be published as 27
+folders inside one zip — nor as a `plugins/<name>/skills/<skill>/SKILL.md` tree, which is four
+levels. They are published as a single **umbrella skill** instead: `tuanjie/SKILL.md` routes a
+request to the right atomic skill, whose instructions and attachments are flattened into
+`references/`, `templates/` and `scripts/` under a `<skill>--` filename prefix.
+
+`for-workbuddy/plugins/tuanjie/skills/` and `for-workbuddy/umbrella/` are both generated from
+this repository's `skills/` — run `npm run build:workbuddy` after changing a skill, and
+`npm run check:workbuddy` in CI to catch drift.
+
+See [for-workbuddy/README.md](for-workbuddy/README.md) for the package layout and the upload
+steps.
+
 ### Verify it worked
 
 Each agent surfaces an installed plugin differently.
@@ -116,6 +154,11 @@ enabled on the Installed tab. In a session, type `/` or check **Settings → Ski
 should be listed. The plugin is enabled by default and triggers automatically on
 Tuanjie-related requests.
 
+**WorkBuddy** — open **插件** and confirm `tuanjie` shows as installed and enabled. In a session
+run `/tuanjie:skills` to list the bundled skills, or `/tuanjie:doctor` to check whether the
+current directory is a Tuanjie project and which engine version it uses. The always-on rule
+triggers the right skill automatically on Tuanjie-related requests.
+
 ### Manual install
 
 If you can't use the marketplace/install commands, link the checkout into your personal skills
@@ -137,6 +180,12 @@ ln -s "$(pwd)/kaying-for-tuanjie" ~/.pi/agent/skills/tuanjie
 {
   "skills": ["/path/to/kaying-for-tuanjie/skills"]
 }
+```
+
+**WorkBuddy** — link the skills into WorkBuddy's user skills directory instead:
+
+```bash
+ln -s "$(pwd)/kaying-for-tuanjie/skills" ~/.workbuddy/skills/tuanjie
 ```
 
 It loads automatically in every project from your next session onward.

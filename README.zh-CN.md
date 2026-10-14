@@ -11,7 +11,7 @@ agent 插件（[Unity-Technologies/unity-agent-plugin](https://github.com/Unity-
 导航、3D 物理、URP 迁移与后处理、Sprite 编辑、Shader Graph 自定义节点、音频优化、
 TextMeshPro 优化、本地化、内购（含国内渠道说明）、团结编辑器命令行自动化与包管理。
 
-支持 **Claude Code**、**Codex**、**Pi**、**ZCode** 与 **KayingCode**。
+支持 **Claude Code**、**Codex**、**Pi**、**ZCode**、**KayingCode** 与 **WorkBuddy**。
 
 ## 安装
 
@@ -84,6 +84,42 @@ Pi 版在三处接入插件（见 `extensions/tuanjie.ts` 与 `.pi-plugin/plugin
 > 绝对路径（出于安全考虑不允许用 `..` 引用市场目录之外的位置），仓库移动位置后两个文件
 > 都要同步修改。Claude Code、Codex、Pi 的清单使用相对路径，无需改动。
 
+**WorkBuddy** — WorkBuddy 的插件体系与 CodeBuddy 兼容，因此 WorkBuddy 版是 `for-workbuddy/`
+下一个自包含的插件市场：插件 `tuanjie`，内含 27 个技能、两个斜杠命令与一条常驻规则。
+在桌面端打开 **插件 → + → 添加插件市场**，选择 `for-workbuddy` 目录，然后在 *个人* 分区
+安装 **tuanjie**。命令行方式：
+
+```bash
+codebuddy plugin marketplace add ./for-workbuddy
+codebuddy plugin install tuanjie kaying-for-tuanjie-marketplace
+```
+
+只想试用、不安装，可直接加载插件：
+
+```bash
+codebuddy --plugin-dir ./for-workbuddy/plugins/tuanjie
+```
+
+开放平台（**开放平台 → 发布管理 → 技能**）只需上传一个压缩包：
+
+```bash
+npm run build:workbuddy     # → dist/tuanjie.zip
+```
+
+开放平台**一个压缩包只接受一个技能，且最多两级目录**（`{skill-name}/SKILL.md`）。它的解析器
+不递归，所以 27 个技能既不能塞进同一个 zip 的 27 个目录里，也不能用
+`plugins/<name>/skills/<skill>/SKILL.md`（四级）这种插件树。因此 27 个技能被发布为**一个总入口
+技能**：`tuanjie/SKILL.md` 负责判定领域并加载对应的原子技能，各原子技能的指令与随附文件被平铺进
+`references/`、`templates/`、`scripts/`，用 `<skill>--` 前缀区分归属。
+
+`for-workbuddy/plugins/tuanjie/skills/` 与 `for-workbuddy/umbrella/` 都由本仓库的 `skills/`
+生成——改动技能后执行 `npm run build:workbuddy` 同步，CI 中可用 `npm run check:workbuddy`
+检查是否漂移。
+
+包结构与上传步骤见 [for-workbuddy/README.md](for-workbuddy/README.md)。
+
+两条上传路径的说明见 [for-workbuddy/README.md](for-workbuddy/README.md)。
+
 ### 验证安装
 
 各代理展示已装插件的方式不同。
@@ -106,6 +142,10 @@ tuanjie@kaying-for-tuanjie  installed, enabled  0.1.0
 前缀的技能（如 `tuanjie:tuanjie-cli`、`tuanjie:tilemap-palette-create`）。插件安装后
 默认启用，在团结引擎相关请求上自动触发。
 
+**WorkBuddy** — 打开 **插件**，确认 `tuanjie` 已安装并启用。会话中执行 `/tuanjie:skills`
+枚举内置技能，或 `/tuanjie:doctor` 检查当前目录是否为团结引擎项目及其引擎版本。常驻规则
+会在团结引擎相关请求上自动路由到对应技能。
+
 ### 手动安装
 
 无法使用市场/安装命令时，可以把检出目录软链到个人技能目录（以 Claude Code 为例，
@@ -126,6 +166,12 @@ ln -s "$(pwd)/kaying-for-tuanjie" ~/.pi/agent/skills/tuanjie
 {
   "skills": ["/path/to/kaying-for-tuanjie/skills"]
 }
+```
+
+**WorkBuddy** — 改为把技能目录软链到 WorkBuddy 的用户技能目录：
+
+```bash
+ln -s "$(pwd)/kaying-for-tuanjie/skills" ~/.workbuddy/skills/tuanjie
 ```
 
 从下一个会话起，所有项目中都会自动加载。
