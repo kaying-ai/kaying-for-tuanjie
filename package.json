@@ -30,7 +30,9 @@
   },
   "scripts": {
     "build:workbuddy": "node scripts/build-workbuddy.mjs",
-    "check:workbuddy": "node scripts/build-workbuddy.mjs --check"
+    "check:workbuddy": "node scripts/build-workbuddy.mjs --check",
+    "build:plugins": "node scripts/sync-plugin-skills.mjs",
+    "check:plugins": "node scripts/sync-plugin-skills.mjs --check"
   },
   "peerDependencies": {
     "@earendil-works/pi-coding-agent": "*",
@@ -39,13 +41,14 @@
   "files": [
     "skills",
     "extensions",
-    ".pi-plugin",
-    ".codex-plugin",
-    ".claude-plugin",
-    ".zcode-plugin",
-    ".kayingcode-plugin",
+    "for-claude",
+    "for-codex",
+    "for-pi",
+    "for-zcode",
+    "for-kayingcode",
     "for-workbuddy",
     "scripts/build-workbuddy.mjs",
+    "scripts/sync-plugin-skills.mjs",
     "README.md",
     "README.zh-CN.md",
     "LICENSE.md"

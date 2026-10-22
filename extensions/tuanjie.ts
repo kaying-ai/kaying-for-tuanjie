@@ -1,8 +1,8 @@
 /**
  * Tuanjie Engine (团结引擎) — Pi extension entry point.
  *
- * Pi-native counterpart to this plugin's `.claude-plugin/` (Claude Code),
- * `.codex-plugin/` (Codex), `.zcode-plugin/` (ZCode) and `.kayingcode-plugin/`
+ * Pi-native counterpart to this plugin's `for-claude/` (Claude Code),
+ * `for-codex/` (Codex), `for-zcode/` (ZCode) and `for-kayingcode/`
  * (KayingCode) manifests. It wires the bundled `skills/` into the Pi agent and
  * exposes a `/tuanjie` command for inspection.
  *
@@ -22,7 +22,7 @@ import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 /** Plugin root — one level up from `extensions/`. */
 const PLUGIN_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SKILLS_DIR = path.join(PLUGIN_ROOT, "skills");
-const MANIFEST_PATH = path.join(PLUGIN_ROOT, ".pi-plugin", "plugin.json");
+const MANIFEST_PATH = path.join(PLUGIN_ROOT, "for-pi", ".pi-plugin", "plugin.json");
 
 interface PiManifest {
 	name?: string;

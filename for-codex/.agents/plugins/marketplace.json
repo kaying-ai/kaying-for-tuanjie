@@ -1,0 +1,12 @@
+{
+  "name": "kaying-for-tuanjie-marketplace",
+  "plugins": [
+    {
+      "name": "tuanjie",
+      "source": {
+        "source": "local",
+        "path": "./plugins/tuanjie"
+      }
+    }
+  ]
+}
